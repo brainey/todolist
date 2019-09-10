@@ -1,5 +1,6 @@
 'use strict';
 var mongoose = require('mongoose');
+var mongooseHistory = require('mongoose-history');
 var Schema = mongoose.Schema;
 
 
@@ -20,5 +21,7 @@ var TaskSchema = new Schema({
     default: ['pending']
   }
 });
+
+TaskSchema.plugin(mongooseHistory);
 
 module.exports = mongoose.model('Tasks', TaskSchema);
